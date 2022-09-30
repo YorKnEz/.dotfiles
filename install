@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+source stowdirs
+
+DOT_FILES=$HOME/.dotfiles
+
+pushd $DOT_FILES
+for folder in $(echo $STOW_TO_HOME | sed "s/,/ /g")
+do
+  echo "Stowing $folder to ~"
+  stow -D $folder
+  stow $folder -t ~
+done
+
+for folder in $(echo $STOW_TO_DOTCONFIG | sed "s/,/ /g")
+do
+  echo "Stowing $folder to ~/.config"
+  stow -D $folder
+  stow $folder -t ~/.config
+done
+popd
