@@ -45,6 +45,7 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Format
 keymap("n", "<leader>bf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
+keymap("n", "<leader>bc", "<cmd>Prettier<CR>")
 
 -- Insert --
 -- Press jk fast to enter
