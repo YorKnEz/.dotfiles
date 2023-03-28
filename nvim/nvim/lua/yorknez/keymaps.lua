@@ -3,8 +3,7 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+--Remap space as leader key keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- Modes
@@ -44,7 +43,7 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Format
-keymap("n", "<leader>bf", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>")
+keymap("n", "<leader>bf", "<cmd>lua vim.lsp.buf.format()<CR>")
 keymap("n", "<leader>bc", "<cmd>Prettier<CR>")
 
 -- Insert --
@@ -85,8 +84,8 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

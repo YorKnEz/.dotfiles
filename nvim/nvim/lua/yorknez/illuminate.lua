@@ -1,0 +1,4 @@
+vim.g.Illuminate_ftblacklist = {'alpha', 'NvimTree'}
+vim.api.nvim_set_keymap('n', '<A-n>', '<cmd>lua require"illuminate".goto_next_reference({wrap=true})<cr>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<A-p>', '<cmd>lua require"illuminate".goto_prev_reference({wrap=true})<cr>', {noremap=true})
+

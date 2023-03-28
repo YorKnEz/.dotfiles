@@ -29,7 +29,38 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+-- Automatically close tab/vim when nvim-tree is the last window in the tab
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    if vim.fn.winnr('$') == 1 and vim.fn.bufname() == 'NvimTree_' .. vim.fn.tabpagenr() then
+      vim.cmd('quit')
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function(data)
+    -- buffer is a directory
+    local directory = vim.fn.isdirectory(data.file) == 1
+
+    if not directory then
+      return
+    end
+
+    -- create a new, empty buffer
+    vim.cmd.enew()
+
+    -- wipe the directory buffer
+    vim.cmd.bw(data.buf)
+
+    -- change to the directory
+    vim.cmd.cd(data.file)
+
+    -- open the tree
+    require("nvim-tree.api").tree.open()
+  end,
+})
 
 -- Fixes Autocomment
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
