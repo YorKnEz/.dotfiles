@@ -10,4 +10,5 @@
 alias obpages='python3 /mnt/Atlas/Documents/Openboard/document/count_pages.py'
 # open tlauncher
 alias tlauncher='java -jar /home/yorknez/Apps/TLauncher/TLauncher-2.86.jar'
-
+# host minecraft server
+alias mcstart='minecraft-server-start.sh'

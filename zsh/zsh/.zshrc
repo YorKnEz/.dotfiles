@@ -1,8 +1,31 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.cargo/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+# Add minecraft server script path to $PATH
+export PATH="$PATH:$HOME/minecraft-servers"
+
+# Append Development paths to $PATH
+function appendDevPaths() {
+  arr=("$@")
+  for i in "${arr[@]}";
+    do
+      export PATH="$PATH:$HOME/Development/$i/bin"
+    done
+
+}
+
+array=("android-studio" "flutter" "webstorm")
+
+appendDevPaths "${array[@]}"
+
+# Add alki to $PATH
+export PATH="$PATH:$HOME/uaic/1sem2/pa/alk/bin"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Path to your google-chrome installation
+export CHROME_EXECUTABLE="google-chrome-stable"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
