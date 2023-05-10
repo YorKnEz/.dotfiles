@@ -87,6 +87,12 @@ keymap("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
 
+-- Vim-Tmux-Navigator
+keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>", opts)
+keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>", opts)
+keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>", opts)
+keymap("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>", opts)
+
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)

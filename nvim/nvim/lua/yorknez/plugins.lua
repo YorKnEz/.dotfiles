@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim" }   -- Gives the "| " for each indentation
   use { "goolord/alpha-nvim" }                    -- Automatic greeter for neovim
   use { "MunifTanjim/prettier.nvim" }
+  use { "christoomey/vim-tmux-navigator" }        -- Integration with tmux
 
   -- LSP
   use({
