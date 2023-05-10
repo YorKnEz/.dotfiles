@@ -11,10 +11,9 @@ function appendDevPaths() {
     do
       export PATH="$PATH:$HOME/Development/$i/bin"
     done
-
 }
 
-array=("android-studio" "flutter" "webstorm")
+array=("android-studio" "flutter")
 
 appendDevPaths "${array[@]}"
 
