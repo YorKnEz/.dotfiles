@@ -249,11 +249,6 @@ _G.packer_plugins = {
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/vim-bbye",
     url = "https://github.com/moll/vim-bbye"
   },
-  ["vim-illuminate"] = {
-    loaded = true,
-    path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/vim-illuminate",
-    url = "https://github.com/RRethy/vim-illuminate"
-  },
   ["vim-tmux-navigator"] = {
     loaded = true,
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
