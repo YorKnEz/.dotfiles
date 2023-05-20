@@ -150,7 +150,6 @@ You can install new plugins here: [plugins](https://github.com/LunarVim/nvim-bas
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer)
 - [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
-- [vim-illuminate](https://github.com/RRethy/vim-illuminate)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
