@@ -27,24 +27,22 @@ keymap("n", "<C-Down>", ":resize +2<CR>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- Buffers
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<S-f>", ":ls<CR>:buffer<Space>", opts)
+-- Close buffers
+keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 
 -- Split buffers
 keymap("n", "<leader>bv", ":vnew<CR>", opts)
 keymap("n", "<leader>bh", ":new<CR>", opts)
+-- Format
+keymap("n", "<leader>bc", "<cmd>Prettier<CR>")
 
 -- Clear highlights
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
-
--- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
-
--- Format
-keymap("n", "<leader>bf", "<cmd>lua vim.lsp.buf.format()<CR>")
-keymap("n", "<leader>bc", "<cmd>Prettier<CR>")
+--[[ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts) ]]
 
 -- Insert --
 -- Press jk fast to enter
@@ -81,7 +79,7 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
-keymap("n", "<leader>lg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
