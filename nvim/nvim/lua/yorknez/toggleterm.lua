@@ -21,12 +21,15 @@ toggleterm.setup({
 })
 
 function _G.set_terminal_keymaps()
-  local opts = {noremap = true}
-  -- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+  local keymap = vim.api.nvim_buf_set_keymap
+  local opts = function(desc)
+    return { noremap = true, desc = "Toggleterm: ".. desc }
+  end
+  -- keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+  keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts("expand left"))
+  keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts("expand down"))
+  keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts("expand up"))
+  keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts("expand right"))
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

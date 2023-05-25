@@ -22,5 +22,12 @@ telescope.setup {
         ["<C-k>"] = actions.move_selection_previous,
       },
     },
+
+    pickers = {
+      keymaps = {
+        modes = { "c" },
+        show_plug = false,
+      }
+    }
   },
 }
