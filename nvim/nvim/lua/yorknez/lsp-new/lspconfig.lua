@@ -37,11 +37,11 @@ keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", global_opt
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -56,9 +56,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts("Implementation"))
     keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts("References"))
 
-    --[[ vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts) ]]
-    --[[ vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts) ]]
-    --[[ vim.keymap.set('n', '<space>wl', function() ]]
+    --[[ vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts) ]]
+    --[[ vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts) ]]
+    --[[ vim.keymap.set("n", "<space>wl", function() ]]
     --[[   print(vim.inspect(vim.lsp.buf.list_workspace_folders())) ]]
     --[[ end, opts) ]]
     keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts("Type definition"))

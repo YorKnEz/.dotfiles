@@ -31,10 +31,10 @@ dap_vt.setup({
   -- @param options nvim_dap_virtual_text_options Current options for nvim-dap-virtual-text
   -- @return string|nil A text how the virtual text should be displayed or nil, if this variable shouldn't be displayed
   display_callback = function(variable, buf, stackframe, node, options)
-    if options.virt_text_pos == 'inline' then
-      return ' = ' .. variable.value
+    if options.virt_text_pos == "inline" then
+      return " = " .. variable.value
     else
-      return variable.name .. ' = ' .. variable.value
+      return variable.name .. " = " .. variable.value
     end
   end,
   -- position of virtual text, see `:h nvim_buf_set_extmark()`, default tries to inline the virtual text. Use 'eol' to set to end of line
@@ -104,33 +104,33 @@ dap.configurations.cpp = {
     type = "cppdbg",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
-    cwd = '${workspaceFolder}',
+    cwd = "${workspaceFolder}",
     stopAtEntry = true,
     setupCommands = {
       {
-        text = '-enable-pretty-printing',
-        description = 'enable pretty printing',
+        text = "-enable-pretty-printing",
+        description = "enable pretty printing",
         ignoreFailures = false
       },
     },
   },
   {
-    name = 'Attach to gdbserver :1234',
-    type = 'cppdbg',
-    request = 'launch',
+    name = "Attach to gdbserver :1234",
+    type = "cppdbg",
+    request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
     end,
-    cwd = '${workspaceFolder}',
-    MIMode = 'gdb',
-    miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb',
+    cwd = "${workspaceFolder}",
+    MIMode = "gdb",
+    miDebuggerServerAddress = "localhost:1234",
+    miDebuggerPath = "/usr/bin/gdb",
     setupCommands = {
       {
-        text = '-enable-pretty-printing',
-        description = 'enable pretty printing',
+        text = "-enable-pretty-printing",
+        description = "enable pretty printing",
         ignoreFailures = false
       },
     },
