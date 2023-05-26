@@ -19,4 +19,3 @@ require("yorknez.alpha")
 --[[ require("yorknez.lsp") ]]
 require("yorknez.lsp-new")
 require("yorknez.dap")
-require("yorknez.which-key")
