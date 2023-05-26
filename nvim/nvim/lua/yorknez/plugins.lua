@@ -52,7 +52,6 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim" }                  -- Automatic greeter for neovim
   use { "MunifTanjim/prettier.nvim" }
   use { "christoomey/vim-tmux-navigator" }      -- Integration with tmux
-  --[[ use { "folke/which-key.nvim", }                 -- Show keymap suggestions ]]
 
   -- LSP
   use({
