@@ -52,60 +52,43 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim" }                  -- Automatic greeter for neovim
   use { "MunifTanjim/prettier.nvim" }
   use { "christoomey/vim-tmux-navigator" }      -- Integration with tmux
-  --[[ use { "folke/which-key.nvim", }                 -- Show keymap suggestions ]]
+  use { "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" }
 
   -- LSP
   use({
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     requires = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' },         -- Required
-      { 'williamboman/mason.nvim' },       -- Optional
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      { "neovim/nvim-lspconfig" },             -- Required
+      { "williamboman/mason.nvim" },           -- Optional
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'hrsh7th/cmp-buffer' },   -- Optional
-      { 'hrsh7th/cmp-path' },     -- Optional
-      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
-      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
+      { "hrsh7th/nvim-cmp" },         -- Required
+      { "hrsh7th/cmp-nvim-lsp" },     -- Required
+      { "hrsh7th/cmp-buffer" },       -- Optional
+      { "hrsh7th/cmp-path" },         -- Optional
+      { "saadparwaiz1/cmp_luasnip" }, -- Optional
+      { "hrsh7th/cmp-nvim-lua" },     -- Optional
 
       -- Snippets
-      { 'L3MON4D3/LuaSnip' },         -- Required
-      { 'rafamadriz/friendly-snippets' }, -- Optional
+      { "L3MON4D3/LuaSnip" },             -- Required
+      { "rafamadriz/friendly-snippets" }, -- Optional
     }
   })
 
-  --[[ -- LSP ]]
-  --[[ use { "neovim/nvim-lspconfig" } -- enable LSP ]]
-  --[[ use { "williamboman/nvim-lsp-installer" } -- simple to use language server installer ]]
-  --[[ use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters ]]
-  --[[]]
-  --[[ -- cmp plugins ]]
-  --[[ use { "hrsh7th/nvim-cmp" } -- The completion plugin ]]
-  --[[ use { "hrsh7th/cmp-buffer" } -- buffer completions ]]
-  --[[ use { "hrsh7th/cmp-path" } -- path completions ]]
-  --[[ use { "saadparwaiz1/cmp_luasnip" } -- snippet completions ]]
-  --[[ use { "hrsh7th/cmp-nvim-lsp" } ]]
-  --[[ use { "hrsh7th/cmp-nvim-lua" } ]]
-  --[[]]
-  --[[ -- snippets ]]
-  --[[ use { "L3MON4D3/LuaSnip" } --snippet engine ]]
-  --[[ use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use ]]
-
   -- Telescope
   use({
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
-    -- or                            , branch = '0.1.x',
-    requires = { { 'nvim-lua/plenary.nvim' } }
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.1",
+    -- or                            , branch = "0.1.x",
+    requires = { { "nvim-lua/plenary.nvim" } }
   })
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", tag = "v0.9.0", run = function()
-    local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+    local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
     ts_update()
   end, }
 
@@ -114,7 +97,7 @@ return packer.startup(function(use)
   use { "nvim-tree/nvim-web-devicons" }
 
   -- Colorschemes
-  use { "ellisonleao/gruvbox.nvim" }
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Comments
   use { "numToStr/Comment.nvim" }
