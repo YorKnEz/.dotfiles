@@ -8,33 +8,30 @@ if not dap_ui_status_ok then
   return
 end
 
-local dap_install_status_ok, dap_install = pcall(require, "dap-install")
-if not dap_install_status_ok then
+local dap_vt_status_ok, dap_vt = pcall(require, "nvim-dap-virtual-text")
+if not dap_vt_status_ok then
   return
 end
 
-dap_install.setup {}
+dap_vt.setup({})
+dapui.setup({})
 
---[[ dap_install.config("python", {}) ]]
---[[ dap_install.config("") ]]
--- add other configs here
-
-dapui.setup {
-  sidebar = {
-    elements = {
-      {
-        id = "scopes",
-        size = 0.25, -- Can be float or integer > 1
-      },
-      { id = "breakpoints", size = 0.25 },
-    },
-    size = 40,
-    position = "right", -- Can be "left", "right", "top", "bottom"
-  },
-  tray = {
-    elements = {},
-  },
-}
+--[[ dapui.setup { ]]
+--[[   sidebar = { ]]
+--[[     elements = { ]]
+--[[       { ]]
+--[[         id = "scopes", ]]
+--[[         size = 0.25, -- Can be float or integer > 1 ]]
+--[[       }, ]]
+--[[       { id = "breakpoints", size = 0.25 }, ]]
+--[[     }, ]]
+--[[     size = 40, ]]
+--[[     position = "right", -- Can be "left", "right", "top", "bottom" ]]
+--[[   }, ]]
+--[[   tray = { ]]
+--[[     elements = {}, ]]
+--[[   }, ]]
+--[[ } ]]
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 
@@ -61,11 +58,11 @@ dap.configurations.cpp = {
     name = "Launch file",
     type = "cppdbg",
     request = "launch",
-    cwd = '${workspaceFolder}',
-    stopAtEntry = true,
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
     setupCommands = {
       {
         text = '-enable-pretty-printing',
@@ -78,13 +75,13 @@ dap.configurations.cpp = {
     name = 'Attach to gdbserver :1234',
     type = 'cppdbg',
     request = 'launch',
-    MIMode = 'gdb',
-    miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb',
-    cwd = '${workspaceFolder}',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
+    cwd = '${workspaceFolder}',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
     setupCommands = {
       {
         text = '-enable-pretty-printing',

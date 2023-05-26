@@ -40,42 +40,42 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use { "wbthomason/packer.nvim" }                -- Have packer manage itself
-  use { "windwp/nvim-autopairs" }                 -- Autopairs, integrates with both cmp and treesitter
-  use { "akinsho/bufferline.nvim" }               -- Buffer line above the screen
-  use { "moll/vim-bbye" }                         -- Allows deleting buffers and other stuff
-  use { "nvim-lualine/lualine.nvim" }             -- Status line
-  use { "akinsho/toggleterm.nvim" }               -- Integrated terminal
-  use { "ahmedkhalf/project.nvim" }               -- Project management (?)
-  use { "lewis6991/impatient.nvim" }              -- Speeds up neovim startup times
-  use { "lukas-reineke/indent-blankline.nvim" }   -- Gives the "| " for each indentation
-  use { "goolord/alpha-nvim" }                    -- Automatic greeter for neovim
+  use { "wbthomason/packer.nvim" }              -- Have packer manage itself
+  use { "windwp/nvim-autopairs" }               -- Autopairs, integrates with both cmp and treesitter
+  use { "akinsho/bufferline.nvim" }             -- Buffer line above the screen
+  use { "moll/vim-bbye" }                       -- Allows deleting buffers and other stuff
+  use { "nvim-lualine/lualine.nvim" }           -- Status line
+  use { "akinsho/toggleterm.nvim" }             -- Integrated terminal
+  use { "ahmedkhalf/project.nvim" }             -- Project management (?)
+  use { "lewis6991/impatient.nvim" }            -- Speeds up neovim startup times
+  use { "lukas-reineke/indent-blankline.nvim" } -- Gives the "| " for each indentation
+  use { "goolord/alpha-nvim" }                  -- Automatic greeter for neovim
   use { "MunifTanjim/prettier.nvim" }
-  use { "christoomey/vim-tmux-navigator" }        -- Integration with tmux
+  use { "christoomey/vim-tmux-navigator" }      -- Integration with tmux
   --[[ use { "folke/which-key.nvim", }                 -- Show keymap suggestions ]]
 
   -- LSP
   use({
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v2.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},             -- Required
-		  {'williamboman/mason.nvim'},           -- Optional
-		  {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },         -- Required
+      { 'williamboman/mason.nvim' },       -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},         -- Required
-		  {'hrsh7th/cmp-nvim-lsp'},     -- Required
-		  {'hrsh7th/cmp-buffer'},       -- Optional
-		  {'hrsh7th/cmp-path'},         -- Optional
-		  {'saadparwaiz1/cmp_luasnip'}, -- Optional
-		  {'hrsh7th/cmp-nvim-lua'},     -- Optional
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },     -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'hrsh7th/cmp-buffer' },   -- Optional
+      { 'hrsh7th/cmp-path' },     -- Optional
+      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+      { 'hrsh7th/cmp-nvim-lua' }, -- Optional
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},             -- Required
-		  {'rafamadriz/friendly-snippets'}, -- Optional
-	  }
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },         -- Required
+      { 'rafamadriz/friendly-snippets' }, -- Optional
+    }
   })
 
   --[[ -- LSP ]]
@@ -97,13 +97,17 @@ return packer.startup(function(use)
 
   -- Telescope
   use({
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   })
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", tag = "v0.8.0" }
+  use { "nvim-treesitter/nvim-treesitter", tag = "v0.9.0", run = function()
+    local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+    ts_update()
+  end, }
 
   -- NvimTree
   use { "nvim-tree/nvim-tree.lua" }
@@ -119,11 +123,10 @@ return packer.startup(function(use)
   -- Git
   use { "lewis6991/gitsigns.nvim" }
 
-
   -- DAP
   use { "mfussenegger/nvim-dap" }
   use { "rcarriga/nvim-dap-ui" }
-  use { "ravenxrz/DAPInstall.nvim" }
+  use { "theHamsta/nvim-dap-virtual-text" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
