@@ -16,6 +16,5 @@ require("yorknez.project")
 require("yorknez.impatient")
 require("yorknez.indentline")
 require("yorknez.alpha")
---[[ require("yorknez.lsp") ]]
 require("yorknez.lsp-new")
 require("yorknez.dap")

@@ -1,3 +1,18 @@
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+  return
+end
+
+-- capabilities
+local lsp_defaults = lspconfig.util.default_config
+
+
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+  "force",
+  lsp_defaults.capabilities,
+  require("cmp_nvim_lsp").default_capabilities(),
+)
+
 local keymap = vim.keymap.set
 
 local function global_opts(desc)
