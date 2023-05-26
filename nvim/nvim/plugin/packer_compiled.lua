@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -128,11 +133,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
-  },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -209,6 +209,11 @@ _G.packer_plugins = {
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
+  ["nvim-ufo"] = {
+    loaded = true,
+    path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/nvim-ufo",
+    url = "https://github.com/kevinhwang91/nvim-ufo"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -233,6 +238,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["promise-async"] = {
+    loaded = true,
+    path = "/home/yorknez/.local/share/nvim/site/pack/packer/start/promise-async",
+    url = "https://github.com/kevinhwang91/promise-async"
   },
   ["telescope.nvim"] = {
     loaded = true,
