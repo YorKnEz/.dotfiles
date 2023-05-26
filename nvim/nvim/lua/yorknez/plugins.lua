@@ -52,11 +52,12 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim" }                    -- Automatic greeter for neovim
   use { "MunifTanjim/prettier.nvim" }
   use { "christoomey/vim-tmux-navigator" }        -- Integration with tmux
+  --[[ use { "folke/which-key.nvim", }                 -- Show keymap suggestions ]]
 
   -- LSP
   use({
 	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
+	  branch = 'v2.x',
 	  requires = {
 		  -- LSP Support
 		  {'neovim/nvim-lspconfig'},             -- Required
@@ -102,7 +103,7 @@ return packer.startup(function(use)
   })
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter" }
+  use { "nvim-treesitter/nvim-treesitter", tag = "v0.8.0" }
 
   -- NvimTree
   use { "nvim-tree/nvim-tree.lua" }
@@ -118,10 +119,11 @@ return packer.startup(function(use)
   -- Git
   use { "lewis6991/gitsigns.nvim" }
 
+
   -- DAP
-  use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
-  use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
-  use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+  use { "mfussenegger/nvim-dap" }
+  use { "rcarriga/nvim-dap-ui" }
+  use { "ravenxrz/DAPInstall.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

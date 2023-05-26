@@ -15,7 +15,8 @@ end
 
 dap_install.setup {}
 
-dap_install.config("python", {})
+--[[ dap_install.config("python", {}) ]]
+--[[ dap_install.config("") ]]
 -- add other configs here
 
 dapui.setup {
@@ -48,3 +49,48 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+dap.adapters.cppdbg = {
+  id = "cppdbg",
+  type = "executable",
+  command = "/home/yorknez/Apps/vs-code-extensions/vscode-cpptools/extension/debugAdapters/bin/OpenDebugAD7",
+}
+
+dap.configurations.cpp = {
+  {
+    name = "Launch file",
+    type = "cppdbg",
+    request = "launch",
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description =  'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  },
+  {
+    name = 'Attach to gdbserver :1234',
+    type = 'cppdbg',
+    request = 'launch',
+    MIMode = 'gdb',
+    miDebuggerServerAddress = 'localhost:1234',
+    miDebuggerPath = '/usr/bin/gdb',
+    cwd = '${workspaceFolder}',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    setupCommands = {
+      {
+        text = '-enable-pretty-printing',
+        description =  'enable pretty printing',
+        ignoreFailures = false
+      },
+    },
+  },
+}

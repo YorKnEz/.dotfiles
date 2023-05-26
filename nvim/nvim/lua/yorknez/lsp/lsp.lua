@@ -25,12 +25,12 @@ for _, server in pairs(servers) do
   }
 
   if server == "lua_ls" then
-    local lua_opts = require "yorknez.lsp.settings.lua_ls"
+    local lua_opts = require("yorknez.lsp.settings.lua_ls")
     opts = vim.tbl_deep_extend("force", lua_opts, opts)
   end
 
   if server == "pyright" then
-    local pyright_opts = require "yorknez.lsp.settings.pyright"
+    local pyright_opts = require("yorknez.lsp.settings.pyright")
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
