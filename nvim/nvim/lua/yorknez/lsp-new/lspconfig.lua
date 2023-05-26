@@ -6,11 +6,20 @@ end
 -- capabilities
 local lsp_defaults = lspconfig.util.default_config
 
+local fold_capabilities = {
+  textDocument = {
+    foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+    }
+  }
+}
 
 lsp_defaults.capabilities = vim.tbl_deep_extend(
   "force",
   lsp_defaults.capabilities,
   require("cmp_nvim_lsp").default_capabilities(),
+  fold_capabilities
 )
 
 local keymap = vim.keymap.set

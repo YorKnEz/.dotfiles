@@ -29,16 +29,29 @@ vim.opt.number = true                           -- set numbered lines
 vim.opt.laststatus = 3
 vim.opt.showcmd = false
 vim.opt.ruler = false
-vim.opt.numberwidth = 4                         -- set number column width to 2 {default 4}
-vim.opt.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
-vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- is one of my fav
+vim.opt.numberwidth = 4           -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes"        -- always show the sign column, otherwise it would shift the text each time
+vim.opt.wrap = false              -- display lines as one long line
+vim.opt.scrolloff = 8             -- is one of my fav
 vim.opt.sidescrolloff = 8
-vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
-vim.opt.fillchars.eob=" "
+vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.colorcolumn = "80"
 
 vim.opt.relativenumber = true
+
+-- nvim-ufo required options
+vim.opt.foldcolumn = "1" -- '0' is not bad
+vim.opt.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  foldsep = " ",
+}
+vim.opt.foldcolumn = "1"
+vim.opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} %s%C "
