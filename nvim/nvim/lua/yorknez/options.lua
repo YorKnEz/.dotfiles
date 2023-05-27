@@ -25,7 +25,6 @@ vim.opt.expandtab = true                        -- convert tabs to spaces
 vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 vim.opt.cursorline = true                       -- highlight the current line
-vim.opt.number = true                           -- set numbered lines
 vim.opt.laststatus = 3
 vim.opt.showcmd = false
 vim.opt.ruler = false
@@ -40,7 +39,8 @@ vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.colorcolumn = "80"
 
-vim.opt.relativenumber = true
+vim.opt.number = false        -- set numbered lines
+vim.opt.relativenumber = true -- set relative numbered lines
 
 -- nvim-ufo required options
 vim.opt.foldcolumn = "1" -- "0" is not bad
@@ -49,9 +49,10 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 
 vim.opt.fillchars = {
+  eob = " ",
+  fold = " ",
   foldopen = "",
   foldclose = "",
   foldsep = " ",
 }
-vim.opt.foldcolumn = "1"
-vim.opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} %s%C "
+vim.opt.statuscolumn = '%{printf("%4d", v:relnum?v:relnum:v:lnum)} %s%C '

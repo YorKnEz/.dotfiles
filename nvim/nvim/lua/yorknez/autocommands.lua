@@ -30,17 +30,33 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Automatically close tab/vim when nvim-tree is the last window in the tab
---[[ vim.api.nvim_create_autocmd({ "BufEnter" }, { ]]
---[[   pattern = { "*" }, ]]
---[[   callback = function() ]]
---[[     if vim.fn.winnr('$') == 1 and vim.fn.bufname() == 'NvimTree_' .. vim.fn.tabpagenr() then ]]
---[[       vim.cmd('quit') ]]
---[[     end ]]
---[[   end, ]]
---[[ }) ]]
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    if vim.fn.winnr('$') == 1 and vim.fn.bufname() == 'NvimTree_' .. vim.fn.tabpagenr() then
+      vim.cmd('quit')
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = { "*" },
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    local win = vim.api.nvim_get_current_win()
+    local file_type = vim.api.nvim_buf_get_option(buf, "filetype")
+
+    if file_type == "NvimTree" then
+      vim.api.nvim_win_set_option(win, "statuscolumn", "%s")
+    end
+  end,
+})
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function(data)
+    -- disable line numbers on the first window (nvimtree)
+    vim.opt_local.statuscolumn = "%s"
+
     -- buffer is a directory
     local directory = vim.fn.isdirectory(data.file) == 1
 
