@@ -6,18 +6,25 @@ end
 toggleterm.setup({
   size = 20,
   open_mapping = [[<leader>tt]],
-  hide_numbers = true,
   shade_terminals = true,
-  shading_factor = 2,
+  shading_factor = 0,
+  --[[ hide_numbers = true, ]]
   start_in_insert = true,
   insert_mappings = true,
   persist_size = true,
-  direction = "float",
+  direction = "horizontal",
   close_on_exit = true,
   shell = vim.o.shell,
-  float_opts = {
-    border = "curved",
-  },
+  on_open = function(t)
+    -- reset nvimtree in order to take the full height of the window
+    local api = require("nvim-tree.api")
+    api.tree.toggle({ focus = false })
+    api.tree.toggle({ focus = false })
+    -- hide the status column inside the terminal
+    vim.opt_local.statuscolumn = ""
+    print("wow")
+  end,
+  float_opts = { border = "curved" },
 })
 
 function _G.set_terminal_keymaps()
@@ -35,7 +42,11 @@ end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+local lazygit = Terminal:new({
+  cmd = "lazygit",
+  hidden = true,
+  direction = "float",
+})
 
 function _LAZYGIT_TOGGLE()
   lazygit:toggle()
