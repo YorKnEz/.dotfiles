@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --[[ end, opts) ]]
     keymap("n", "<leader>ld", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts("Type definition"))
     keymap("n", "<leader>lf", function()
-      vim.lsp.buf.format { async = true }
+      vim.lsp.buf.format({ async = true })
     end, opts("Format"))
     keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts("LspInfo"))
     keymap("n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts("LspInstallInfo"))

@@ -77,6 +77,7 @@ return packer.startup(function(use)
       { "rafamadriz/friendly-snippets" }, -- Optional
     }
   })
+  use { "jose-elias-alvarez/null-ls.nvim" }
 
   -- Telescope
   use({

@@ -98,7 +98,7 @@ plugins=(
   cp
   fzf
   git
-  vi-mode
+  # vi-mode
   # custom
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -127,4 +127,4 @@ source "$ZDOTDIR/zsh-aliases"
 source "$ZDOTDIR/zsh-plugins-config"
 
 # Allows spawning a new terminal in working dir
-source /etc/profile.d/vte.sh
+# source /etc/profile.d/vte.sh
