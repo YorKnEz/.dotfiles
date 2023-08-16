@@ -10,7 +10,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    file_ignore_patterns = { ".git/", "node_modules" },
+    file_ignore_patterns = { ".git/", "node_modules", "__pycache__" },
     -- layout_strategy = "horizontal",
     -- layout_config = { height = 0.95 },
 
