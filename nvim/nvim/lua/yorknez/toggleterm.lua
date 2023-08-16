@@ -19,6 +19,7 @@ toggleterm.setup({
   shading_factor = 0,
   start_in_insert = true,
   insert_mappings = true,
+  terminal_mappings = true,
   persist_size = true,
   direction = "horizontal",
   close_on_exit = true,
@@ -28,11 +29,17 @@ toggleterm.setup({
 })
 
 function _G.set_terminal_keymaps()
-  local keymap = vim.api.nvim_buf_set_keymap
+  local keymap = vim.keymap.set
   local opts = function(desc)
-    return { noremap = true, desc = "Toggleterm: " .. desc }
+    return { noremap = true, desc = "Toggleterm: " .. desc, buffer = 0 }
   end
-  keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts("close terminal"))
+  keymap("t", "<esc>", [[<C-\><C-n>]], opts("close terminal"))
+  keymap("t", "jk", [[<C-\><C-n>]], opts("close terminal"))
+  keymap("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts("hello"))
+  keymap("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts("hello"))
+  keymap("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts("hello"))
+  keymap("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts("hello"))
+  keymap("t", "<C-w>", [[<C-\><C-n><C-w>]], opts("hello"))
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
