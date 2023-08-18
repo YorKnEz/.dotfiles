@@ -1,0 +1,119 @@
+# env:
+#   TERM: xterm-256color
+
+window:
+  opacity: 0.85
+
+## Font configuration
+font:
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  bold_italic:
+    family: Hack Nerd Font
+    style: Bold Italic
+  size: 10
+
+# Colors (catppuccin-mocha)
+colors:
+    primary:
+        background: "#1E1E2E" # base
+        foreground: "#CDD6F4" # text
+        # Bright and dim foreground colors
+        dim_foreground: "#CDD6F4" # text
+        bright_foreground: "#CDD6F4" # text
+
+    # Cursor colors
+    cursor:
+        text: "#1E1E2E" # base
+        cursor: "#F5E0DC" # rosewater
+    vi_mode_cursor:
+        text: "#1E1E2E" # base
+        cursor: "#B4BEFE" # lavender
+
+    # Search colors
+    search:
+        matches:
+            foreground: "#1E1E2E" # base
+            background: "#A6ADC8" # subtext0
+        focused_match:
+            foreground: "#1E1E2E" # base
+            background: "#A6E3A1" # green
+        footer_bar:
+            foreground: "#1E1E2E" # base
+            background: "#A6ADC8" # subtext0
+
+    # Keyboard regex hints
+    hints:
+        start:
+            foreground: "#1E1E2E" # base
+            background: "#F9E2AF" # yellow
+        end:
+            foreground: "#1E1E2E" # base
+            background: "#A6ADC8" # subtext0
+
+    # Selection colors
+    selection:
+        text: "#1E1E2E" # base
+        background: "#F5E0DC" # rosewater
+
+    # Normal colors
+    normal:
+        black: "#45475A" # surface1
+        red: "#F38BA8" # red
+        green: "#A6E3A1" # green
+        yellow: "#F9E2AF" # yellow
+        blue: "#89B4FA" # blue
+        magenta: "#F5C2E7" # pink
+        cyan: "#94E2D5" # teal
+        white: "#BAC2DE" # subtext1
+
+    # Bright colors
+    bright:
+        black: "#585B70" # surface2
+        red: "#F38BA8" # red
+        green: "#A6E3A1" # green
+        yellow: "#F9E2AF" # yellow
+        blue: "#89B4FA" # blue
+        magenta: "#F5C2E7" # pink
+        cyan: "#94E2D5" # teal
+        white: "#A6ADC8" # subtext0
+
+    # Dim colors
+    dim:
+        black: "#45475A" # surface1
+        red: "#F38BA8" # red
+        green: "#A6E3A1" # green
+        yellow: "#F9E2AF" # yellow
+        blue: "#89B4FA" # blue
+        magenta: "#F5C2E7" # pink
+        cyan: "#94E2D5" # teal
+        white: "#BAC2DE" # subtext1
+
+    # indexed_colors:
+    #     - { index: 16, color: "#FAB387" }
+    #     - { index: 17, color: "#F5E0DC" }
+
+# Starting shell for windows
+# shell:
+#   program: wsl
+
+# Starting directory for windows
+# working_directory: \\wsl.localhost\Ubuntu\home\yorknez
+
+key_bindings:
+  - { key: T, mods: Control,        chars: "\x00\x63" } # new window
+  - { key: W, mods: Control|Shift,  chars: "\x00\x26" } # close window
+  - { key: W, mods: Control,        chars: "\x00\x78" } # close pame
+  - { key: 1, mods: Alt,            chars: "\x00\x30" } # move to tab 1
+  - { key: 2, mods: Alt,            chars: "\x00\x31" }
+  - { key: 3, mods: Alt,            chars: "\x00\x32" }
+  - { key: 4, mods: Alt,            chars: "\x00\x33" }
+  - { key: 5, mods: Alt,            chars: "\x00\x34" }
+  - { key: 6, mods: Alt,            chars: "\x00\x35" }
