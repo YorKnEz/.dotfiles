@@ -3,12 +3,12 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
+-- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
+-- if not config_status_ok then
+--   return
+-- end
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
+-- local tree_cb = nvim_tree_config.nvim_tree_callback
 
 local function on_attach(bufnr)
   local api = require("nvim-tree.api")
@@ -16,7 +16,6 @@ local function on_attach(bufnr)
   local function opts(desc)
     return { desc = "nvim-tree-api." .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-
 
   -- Default mappings. Feel free to modify or remove as you wish.
   --
@@ -91,7 +90,7 @@ local function on_attach(bufnr)
   vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
 end
 
-nvim_tree.setup {
+nvim_tree.setup({
   on_attach = on_attach,
   update_focused_file = {
     enable = true,
@@ -139,4 +138,4 @@ nvim_tree.setup {
     width = 30,
     side = "left",
   },
-}
+})
