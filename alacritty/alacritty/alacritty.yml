@@ -107,6 +107,10 @@ colors:
 # Starting directory for windows
 # working_directory: \\wsl.localhost\Ubuntu\home\yorknez
 
+# Start tmux when opening alacritty on Linux
+shell:
+    program: /usr/bin/tmux
+
 key_bindings:
   - { key: T, mods: Control,        chars: "\x00\x63" } # new window
   - { key: W, mods: Control|Shift,  chars: "\x00\x26" } # close window
