@@ -19,8 +19,5 @@ configs.setup({
       -- "python", "css"
     }
   },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-  },
+  enable_autocmd = false,
 })
