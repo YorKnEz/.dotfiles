@@ -128,3 +128,11 @@ source "$ZDOTDIR/zsh-plugins-config"
 
 # Allows spawning a new terminal in working dir
 # source /etc/profile.d/vte.sh
+
+# pnpm
+export PNPM_HOME="/home/yorknez/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
