@@ -55,4 +55,4 @@ vim.opt.fillchars = {
   foldclose = "",
   foldsep = " ",
 }
-vim.opt.statuscolumn = '%{printf("%4d", v:relnum?v:relnum:v:lnum)} %s%C '
+vim.opt.statuscolumn = '%{printf("%5d", v:relnum?v:relnum:v:lnum)} %s%C '
