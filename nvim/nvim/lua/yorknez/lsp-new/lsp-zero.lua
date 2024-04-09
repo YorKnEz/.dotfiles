@@ -10,6 +10,12 @@ lsp.on_attach(function(_, bufnr)
 end)
 
 require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+-- require("lspconfig").clangd.setup({
+--   cmd = {
+--     "clangd",
+--     "--fallback-style=\"{IndentWidth: 4}\""
+--   }
+-- })
 
 lsp.ensure_installed({ "lua_ls", "clangd", "pyright" })
 
