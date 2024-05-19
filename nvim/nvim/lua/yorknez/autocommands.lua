@@ -1,3 +1,9 @@
+-- Set shiftwidth to 2 for some specific languages
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua", "javascript", "javascriptreact" },
+  command = "setlocal shiftwidth=2 tabstop=2"
+})
+
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
