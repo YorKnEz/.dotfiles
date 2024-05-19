@@ -22,22 +22,30 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
   fold_capabilities
 )
 
-local keymap = vim.keymap.set
+local language_servers = lspconfig.util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+for _, ls in ipairs(language_servers) do
+  -- default options for all lsps
+  local opts = {
+    capabilities = lsp_defaults.capabilities
+  }
 
-local function global_opts(desc)
-  return { desc = "LSP: " .. desc }
+  -- extend the default options using custom options from configs folder
+  local require_ok, settings = pcall(require, "yorknez.lsp-new.configs." .. ls)
+  if require_ok then
+    opts = vim.tbl_deep_extend("force", settings, opts)
+  end
+
+  -- add the options to the lsp
+  lspconfig[ls].setup(opts)
 end
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", global_opts("Diagnostics"))
-keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", global_opts("Next diagnostic"))
-keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", global_opts("Prev diagnostic"))
-keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", global_opts("Setloclist"))
 
+-- set keymaps
+local keymap = vim.keymap.set
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
+
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>

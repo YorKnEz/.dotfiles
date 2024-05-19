@@ -1,15 +1,14 @@
-local lsp_status_ok, lsp = pcall(require, "lsp-zero")
-if not lsp_status_ok then
-  return
-end
+-- local lsp_status_ok, lsp = pcall(require, "lsp-zero")
+-- if not lsp_status_ok then
+--   return
+-- end
 
-lsp.preset("recommended")
+-- lsp.preset("recommended")
 
-lsp.on_attach(function(_, bufnr)
-  lsp.default_keymaps({ buffer = bufnr })
-end)
+-- lsp.on_attach(function(_, bufnr)
+--   lsp.default_keymaps({ buffer = bufnr })
+-- end)
 
-require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 -- require("lspconfig").clangd.setup({
 --   cmd = {
 --     "clangd",
@@ -17,6 +16,6 @@ require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 --   }
 -- })
 
-lsp.ensure_installed({ "lua_ls", "clangd", "pyright" })
-
-lsp.setup()
+-- lsp.ensure_installed({ "lua_ls", "clangd", "pylsp" })
+--
+-- lsp.setup()
