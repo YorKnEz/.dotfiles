@@ -79,6 +79,7 @@ keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts("Telescope: Live grep
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts("Telescope: Projects"))
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts("Telescope: Buffers"))
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts("Telescope: Keymaps"))
+keymap("n", "<leader>fr", ":Telescope resume<CR>", opts("Telescope: Resume last picker"))
 
 -- Git
 keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts("Toggleterm: lazygit"))

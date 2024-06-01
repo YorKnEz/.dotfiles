@@ -1,6 +1,6 @@
 -- Set shiftwidth to 2 for some specific languages
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "lua", "javascript", "javascriptreact" },
+  pattern = { "lua", },
   command = "setlocal shiftwidth=2 tabstop=2"
 })
 
