@@ -9,6 +9,8 @@ null_ls.setup({
     null_ls.builtins.formatting.isort,
 
     -- js
-    null_ls.builtins.formatting.prettierd,
+    null_ls.builtins.formatting.prettierd.with({
+      disabled_filetypes = { 'html' },
+    }),
   }
 })
