@@ -10,6 +10,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   command = "setlocal shiftwidth=4 tabstop=4"
 })
 
+-- Set colorcolumn to 80 for some specific languages
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "asm", },
+  command = "setlocal colorcolumn=80"
+})
+
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
