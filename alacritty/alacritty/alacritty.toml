@@ -133,8 +133,10 @@ chars = "\u00005"
 key = 6
 mods = "Alt"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/tmux"
 
 [window]
 opacity = 0.92
+
+[terminal]
