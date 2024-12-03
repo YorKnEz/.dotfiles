@@ -39,8 +39,8 @@ vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.colorcolumn = "100"
 
-vim.opt.number = false        -- set numbered lines
-vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.number = false         -- set numbered lines
+vim.opt.relativenumber = false -- set relative numbered lines
 
 -- nvim-ufo required options
 vim.opt.foldcolumn = "1" -- "0" is not bad
