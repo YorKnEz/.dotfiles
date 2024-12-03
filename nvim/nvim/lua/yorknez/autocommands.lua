@@ -1,19 +1,29 @@
--- Set shiftwidth to 2 for some specific languages
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "lua", "typescriptreact" },
-  command = "setlocal shiftwidth=2 tabstop=2"
+-- Function to set shiftwidth based on file type
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    local ft = vim.bo.filetype
+    if ft == "lua" or ft == "typescriptreact" then
+      vim.opt.shiftwidth = 2
+      vim.opt.tabstop = 2
+    elseif ft == "yaml" then
+      vim.opt.shiftwidth = 4
+      vim.opt.tabstop = 4
+    end
+  end,
 })
 
--- Set shiftwidth to 4 for some specific languages
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "yaml", },
-  command = "setlocal shiftwidth=4 tabstop=4"
-})
-
--- Set colorcolumn to 80 for some specific languages
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "asm", },
-  command = "setlocal colorcolumn=80"
+-- Function to set colorcolumn based on file type
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    local ft = vim.bo.filetype
+    if ft == "asm" then
+      vim.opt.colorcolumn = "80"
+    elseif ft == "python" then
+      vim.opt.colorcolumn = "120"
+    end
+  end,
 })
 
 -- Use 'q' to quit from common plugins
