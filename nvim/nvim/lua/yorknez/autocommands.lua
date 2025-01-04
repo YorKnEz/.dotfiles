@@ -22,6 +22,8 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.opt.colorcolumn = "80"
     elseif ft == "python" then
       vim.opt.colorcolumn = "120"
+    else
+      vim.opt.colorcolumn = "100" -- default
     end
   end,
 })
