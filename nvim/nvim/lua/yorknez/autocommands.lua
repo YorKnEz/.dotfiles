@@ -3,7 +3,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     local ft = vim.bo.filetype
-    if ft == "lua" or ft == "typescriptreact" then
+    if ft == "lua" or ft == "typescriptreact" or ft == "javascript" or ft == "javascriptreact" then
       vim.opt.shiftwidth = 2
       vim.opt.tabstop = 2
     elseif ft == "yaml" then
