@@ -30,7 +30,7 @@ for _, ls in ipairs(language_servers) do
   }
 
   -- extend the default options using custom options from configs folder
-  local require_ok, settings = pcall(require, "yorknez.lsp-new.configs." .. ls)
+  local require_ok, settings = pcall(require, "yorknez.lsp.configs." .. ls)
   if require_ok then
     opts = vim.tbl_deep_extend("force", settings, opts)
   end

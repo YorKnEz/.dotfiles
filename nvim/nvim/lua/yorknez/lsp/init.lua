@@ -1,7 +1,5 @@
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
-
-require("yorknez.lsp.lsp")
-require("yorknez.lsp.handlers").setup()
+require("yorknez.lsp.lsp-zero")
+require("yorknez.lsp.lspconfig")
+require("yorknez.lsp.cmp")
+require("yorknez.lsp.diagnostics")
+require("yorknez.lsp.null-ls")
