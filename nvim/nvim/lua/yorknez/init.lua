@@ -1,6 +1,6 @@
 require("yorknez.options")
 require("yorknez.keymaps")
-require("yorknez.plugins")
+require("yorknez.lazy")
 require("yorknez.autocommands")
 require("yorknez.colorscheme")
 require("yorknez.telescope")
