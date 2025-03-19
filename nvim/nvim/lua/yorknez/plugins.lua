@@ -39,14 +39,14 @@ return {
   -- Telescope
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.1",
+    tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
 
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    tag = "v0.9.0",
+    tag = "v0.9.3",
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
@@ -72,5 +72,5 @@ return {
   { "theHamsta/nvim-dap-virtual-text" },
 
   -- LaTeX
-  { "lervag/vimtex",                              tag = "v2.15" },
+  { "lervag/vimtex",                              tag = "v2.16" },
 }

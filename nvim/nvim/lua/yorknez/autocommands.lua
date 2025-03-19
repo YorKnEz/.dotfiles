@@ -74,10 +74,10 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   callback = function()
     local buf = vim.api.nvim_get_current_buf()
     local win = vim.api.nvim_get_current_win()
-    local file_type = vim.api.nvim_buf_get_option(buf, "filetype")
+    local file_type = vim.api.nvim_get_option_value("filetype", { buf = buf })
 
     if file_type == "NvimTree" then
-      vim.api.nvim_win_set_option(win, "statuscolumn", "%s")
+      vim.api.nvim_set_option_value("statuscolumn", "%s", { win = win })
     end
   end,
 })
