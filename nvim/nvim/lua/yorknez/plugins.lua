@@ -10,6 +10,7 @@ return {
   { "windwp/nvim-autopairs" },                                                               -- Autopairs, integrates with both cmp and treesitter
   { "lewis6991/impatient.nvim" },                                                            -- Speeds up neovim startup times
   { "kevinhwang91/nvim-ufo",              dependencies = { "kevinhwang91/promise-async" } }, -- Folding
+  { "ahmedkhalf/project.nvim" },                                                             -- Project management (?)
   { "MunifTanjim/prettier.nvim" },                                                           -- Formatter
 
   -- LSP
