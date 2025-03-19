@@ -9,10 +9,5 @@ null_ls.setup({
       extra_args = { '--line-length', '120' }
     }),
     null_ls.builtins.formatting.isort,
-
-    -- js
-    null_ls.builtins.formatting.prettierd.with({
-      disabled_filetypes = { 'html' },
-    }),
   }
 })
