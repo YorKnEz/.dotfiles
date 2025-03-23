@@ -67,11 +67,6 @@ return {
   -- Git
   { "lewis6991/gitsigns.nvim" },
 
-  -- Debugging
-  { "mfussenegger/nvim-dap" },
-  { "rcarriga/nvim-dap-ui" },
-  { "theHamsta/nvim-dap-virtual-text" },
-
   -- LaTeX
   { "lervag/vimtex",                              tag = "v2.16" },
 }
