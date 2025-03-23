@@ -48,29 +48,10 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
+-- Whenever entering nvim, open NvimTree too
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
-  callback = function(data)
-    -- disable line numbers on the first window (nvimtree)
-    vim.opt_local.statuscolumn = "%s"
-
-    -- buffer is a directory
-    local directory = vim.fn.isdirectory(data.file) == 1
-
-    if not directory then
-      return
-    end
-
-    -- create a new, empty buffer
-    vim.cmd.enew()
-
-    -- wipe the directory buffer
-    vim.cmd.bw(data.buf)
-
-    -- change to the directory
-    vim.cmd.cd(data.file)
-
-    -- open the tree
-    require("nvim-tree.api").tree.open()
+  callback = function()
+    require("nvim-tree.api").tree.find_file({ open = true })
   end,
 })
 

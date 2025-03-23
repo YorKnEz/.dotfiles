@@ -3,13 +3,6 @@ if not status_ok then
   return
 end
 
--- local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
--- if not config_status_ok then
---   return
--- end
-
--- local tree_cb = nvim_tree_config.nvim_tree_callback
-
 local function on_attach(bufnr)
   local api = require("nvim-tree.api")
 
@@ -92,37 +85,23 @@ end
 
 nvim_tree.setup({
   on_attach = on_attach,
-  update_focused_file = {
-    enable = true,
-    update_cwd = false,
+  hijack_cursor = true,
+  view = {
+    width = 30,
+    side = "left",
   },
   renderer = {
-    root_folder_modifier = ":t",
+    root_folder_label = ":t",
     icons = {
       glyphs = {
-        default = "",
-        symlink = "",
-        folder = {
-          arrow_open = "",
-          arrow_closed = "",
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
-        },
         git = {
           unstaged = "",
-          staged = "S",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "U",
-          deleted = "",
-          ignored = "◌",
         },
       },
     },
+  },
+  update_focused_file = {
+    enable = true,
   },
   diagnostics = {
     enable = true,
@@ -133,9 +112,5 @@ nvim_tree.setup({
       warning = "",
       error = "",
     },
-  },
-  view = {
-    width = 30,
-    side = "left",
   },
 })
