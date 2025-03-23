@@ -3,7 +3,6 @@ return {
   { "akinsho/bufferline.nvim" },                                                             -- Buffer line above the screen
   { "moll/vim-bbye" },                                                                       -- Allows deleting buffers and other stuff
   { "nvim-lualine/lualine.nvim" },                                                           -- Status line
-  { "akinsho/toggleterm.nvim" },                                                             -- Integrated terminal
   { "lukas-reineke/indent-blankline.nvim" },                                                 -- Gives the "| " for each indentation
   { "goolord/alpha-nvim" },                                                                  -- Automatic greeter for neovim
   { "christoomey/vim-tmux-navigator" },                                                      -- Integration with tmux

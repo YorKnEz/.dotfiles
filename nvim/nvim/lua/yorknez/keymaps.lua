@@ -81,9 +81,6 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts("Telescope: Buffers"))
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts("Telescope: Keymaps"))
 keymap("n", "<leader>fr", ":Telescope resume<CR>", opts("Telescope: Resume last picker"))
 
--- Git
-keymap("n", "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts("Toggleterm: lazygit"))
-
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts("Toggle linewise comment"))
 keymap("x", "<leader>/", "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
