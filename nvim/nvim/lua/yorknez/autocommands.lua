@@ -48,10 +48,36 @@ vim.api.nvim_create_autocmd({ "User" }, {
   end,
 })
 
--- Whenever entering nvim, open NvimTree too
+-- Always open NvimTree and at least a buffer
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   callback = function()
-    require("nvim-tree.api").tree.find_file({ open = true })
+    local api = require("nvim-tree.api")
+
+    if api.tree.is_tree_buf() then        -- user opened a folder in nvim (the current buffer is nvimtree)
+      vim.cmd("vnew")                     -- open an empty buffer in a split window (this keeps nvimtree open)
+      api.tree.resize()                   -- resize nvimtree to normal size
+    else                                  -- user opened a file in nvim
+      api.tree.find_file({ open = true }) -- open and focus the given file
+    end
+  end,
+})
+
+-- Close nvim if NvimTree is the only window left
+vim.api.nvim_create_autocmd({ "WinClosed" }, {
+  callback = function(data)
+    local api = require("nvim-tree.api")
+
+    print(api.tree.is_visible(), vim.fn.winnr("$") == 2, data.match, api.tree.winid())
+
+    -- WinClosed is called before actually closing the window so in order to close nvim we need to have:
+    local close_nvim = api.tree.is_visible()              -- nvimtree visible
+        and vim.fn.winnr("$") == 2                        -- only 2 windows opened (nvimtree + other window)
+        and vim.fn.str2nr(data.match) ~= api.tree.winid() -- the window closed is not nvimtree
+
+    -- so this closes nvim only if there were two windows left, one of which was nvim tree and the other was the closed window
+    if close_nvim then
+      vim.cmd('qa!') -- exit without saving
+    end
   end,
 })
 

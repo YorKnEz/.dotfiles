@@ -61,7 +61,7 @@ keymap("x", "K", ":move '<-2<cr>gv-gv", opts("Move text up"))
 -- Plugins --
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts("Toggle NvimTree"))
+keymap("n", "<leader>e", "<cmd>lua require('nvim-tree.api').tree.toggle({ focus = false })<cr>", opts("Toggle NvimTree"))
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<cr>", opts("Telescope: Find files"))
