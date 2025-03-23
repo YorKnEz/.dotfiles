@@ -1,29 +1,27 @@
--- Function to set shiftwidth based on file type
+-- Function to set some options based on filetype
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     local ft = vim.bo.filetype
-    if ft == "lua" or ft == "typescriptreact" or ft == "javascript" or ft == "javascriptreact" then
-      vim.opt.shiftwidth = 2
-      vim.opt.tabstop = 2
-    elseif ft == "yaml" then
-      vim.opt.shiftwidth = 4
-      vim.opt.tabstop = 4
-    end
-  end,
-})
 
--- Function to set colorcolumn based on file type
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  callback = function()
-    local ft = vim.bo.filetype
-    if ft == "asm" then
-      vim.opt.colorcolumn = "80"
-    elseif ft == "python" then
-      vim.opt.colorcolumn = "120"
-    else
-      vim.opt.colorcolumn = "100" -- default
+    -- Define settings for specific filetypes
+    local settings = {
+      lua = { shiftwidth = 2, tabstop = 2 },
+      typescriptreact = { shiftwidth = 2, tabstop = 2 },
+      javascript = { shiftwidth = 2, tabstop = 2 },
+      javascriptreact = { shiftwidth = 2, tabstop = 2 },
+      yaml = { shiftwidth = 4, tabstop = 4 },
+      asm = { colorcolumn = "80" },
+      python = { colorcolumn = "120" },
+      gitcommit = { wrap = true, spell = true },
+      markdown = { wrap = true, spell = true },
+    }
+
+    -- Apply settings if they exist for the filetype
+    if settings[ft] then
+      for key, value in pairs(settings[ft]) do
+        vim.opt_local[key] = value
+      end
     end
   end,
 })
@@ -47,38 +45,6 @@ vim.api.nvim_create_autocmd({ "User" }, {
       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
       set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3
     ]])
-  end,
-})
-
--- Set wrap and spell in markdown and gitcommit
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-})
-
--- Automatically close tab/vim when nvim-tree is the last window in the tab
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    if vim.fn.winnr('$') == 1 and vim.fn.bufname() == 'NvimTree_' .. vim.fn.tabpagenr() then
-      vim.cmd('quit')
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-  pattern = { "*" },
-  callback = function()
-    local buf = vim.api.nvim_get_current_buf()
-    local win = vim.api.nvim_get_current_win()
-    local file_type = vim.api.nvim_get_option_value("filetype", { buf = buf })
-
-    if file_type == "NvimTree" then
-      vim.api.nvim_set_option_value("statuscolumn", "%s", { win = win })
-    end
   end,
 })
 
