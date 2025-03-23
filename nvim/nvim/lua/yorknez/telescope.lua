@@ -31,3 +31,6 @@ telescope.setup {
     }
   },
 }
+
+-- enable project extension for project plugin
+telescope.load_extension("projects")
