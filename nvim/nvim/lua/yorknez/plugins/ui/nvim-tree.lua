@@ -130,14 +130,12 @@ return {
 
       local api = require("nvim-tree.api")
 
-      -- Always open NvimTree and at least a buffer
+      -- Open NvimTree and an empty buffer if the user opened a directory
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()
           if api.tree.is_tree_buf() then        -- user opened a folder in nvim (the current buffer is nvimtree)
             vim.cmd("vnew")                     -- open an empty buffer in a split window (this keeps nvimtree open)
             api.tree.resize()                   -- resize nvimtree to normal size
-          else                                  -- user opened a file in nvim
-            api.tree.find_file({ open = true }) -- open and focus the given file
           end
         end,
       })
