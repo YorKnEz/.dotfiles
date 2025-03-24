@@ -1,4 +1,5 @@
--- internal stuff (probably most of these can be removed)
+---- Internal stuff ----
+-- (probably most of these can be removed) 
 vim.opt.backup = false            -- creates a backup file
 vim.opt.writebackup = false       -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.undofile = true           -- enable persistent undo
@@ -18,51 +19,53 @@ vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 
--- search
+
+
+---- Search ----
 vim.opt.hlsearch = false  -- highlight all matches on previous search pattern
 vim.opt.incsearch = true
 vim.opt.ignorecase = true -- ignore case in search patterns
 
--- code
+
+
+---- Code ----
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4   -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4      -- the number of spaces that a tab counts for
 vim.opt.wrap = false     -- display lines as one long line
 
--- folding
+-- Folding
 vim.opt.foldcolumn = "1"    -- display fold icons on 1 column
 vim.opt.foldlevel = 99      -- close folds with a higher level
 vim.opt.foldlevelstart = 99 -- set foldlevel to 99 on new buffers
 vim.opt.foldenable = true
 
--- ui
+
+
+---- UI ----
 vim.opt.cmdheight = 1       -- more space in the neovim command line for displaying messages
 vim.opt.pumheight = 10      -- pop up menu height
 
 vim.opt.conceallevel = 0    -- so that `` is visible in markdown files
-vim.opt.completeopt = {     -- mostly just for cmp
-    "menuone",              -- always show autocomplete results
-    "noselect",             -- force user to select an option
-}
 vim.opt.cursorline = true   -- highlight the current line
 vim.opt.showtabline = 2     -- always show tabs
 vim.opt.colorcolumn = "100" -- soft column limit
 vim.opt.fillchars = {
-    eob = " ",
-    -- folding fillchars
-    fold = " ",
-    foldopen = "",
-    foldclose = "",
-    foldsep = " ",
+  eob = " ",
+  -- folding fillchars
+  fold = " ",
+  foldopen = "",
+  foldclose = "",
+  foldsep = " ",
 }
 
--- ui - status line
+-- Status Line
 vim.opt.laststatus = 3
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showcmd = false
 vim.opt.ruler = true
 
--- status column
+-- Status Column
 vim.opt.signcolumn = "yes"     -- always show the sign column, otherwise it would shift the text each time
 vim.opt.number = true          -- set numbered lines
 vim.opt.relativenumber = false -- set relative numbered lines
@@ -72,7 +75,9 @@ vim.opt.relativenumber = false -- set relative numbered lines
 -- human line numbers, it is important that number is set to true
 vim.opt.statuscolumn = '%=%3l %s%C '
 
--- quality of life
+
+
+---- Quality of Life ----
 vim.opt.smartcase = true   -- smart case
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.splitbelow = true  -- force all horizontal splits to go below current window

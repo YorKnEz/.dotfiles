@@ -25,8 +25,12 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- import your plugins
-    { import = "yorknez/plugins" },
+    { import = "yorknez.plugins" },
+    { import = "yorknez.plugins.code" },
+    { import = "yorknez.plugins.lsp" },
+    { import = "yorknez.plugins.ui" },
   },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
+  install = { colorscheme = { "catppuccin" } },
+  checker = { enabled = true },           -- automatically check for plugin updates
+  change_detection = { enabled = false }, -- automatically check for config updates
 })
