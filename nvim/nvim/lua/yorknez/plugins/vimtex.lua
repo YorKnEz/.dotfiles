@@ -16,7 +16,6 @@ return {
 
       -- SyncTeX for forward/backward search
       vim.g.vimtex_view_general_options = "--synctex-forward @line:@col:@tex"
-      vim.g.vimtex_view_general_options_latexmk = "--synctex=1"
     end
   },
 }
