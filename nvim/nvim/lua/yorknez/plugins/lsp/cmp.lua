@@ -132,9 +132,9 @@ return {
           { name = "nvim_lua" },
           { name = "luasnip" },
         },
-        experimental = {
-          ghost_text = true,
-        },
+        -- experimental = {
+        --   ghost_text = true,
+        -- },
       })
     end
   },
