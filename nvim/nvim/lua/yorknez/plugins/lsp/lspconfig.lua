@@ -83,7 +83,7 @@ return {
       -- Diagnostics are turned on by default, this just changes some visual things
       vim.diagnostic.config({
         -- underline = true, -- by default, diagnostics are underlined
-        -- virtual_text = false, -- by default, diagnostics are shown inline, disable this to turn it off
+        virtual_text = false, -- by default, diagnostics are shown inline, disable this to turn it off
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "",
