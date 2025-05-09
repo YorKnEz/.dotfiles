@@ -3,7 +3,7 @@
 return {
   -- Packet manager for LSP, DAP, Linting, Formatting
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     lazy = false,
     opts = {},
   },
@@ -15,8 +15,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { "hrsh7th/cmp-nvim-lsp" },
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
+      { "mason-org/mason.nvim" },
+      -- FIXME: remove pin after upgrading to v0.11 (next update requires neovim v0.11)
+      { "mason-org/mason-lspconfig.nvim", pin = true },
     },
     init = function()
       -- Reserve a space in the gutter
