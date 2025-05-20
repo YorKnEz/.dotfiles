@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("FileType", {
       python = { colorcolumn = "120" },
       gitcommit = { wrap = true, spell = true },
       markdown = { wrap = true, spell = true },
+      tex = { wrap = true, spell = true },
     }
 
     -- Apply settings if they exist for the filetype
