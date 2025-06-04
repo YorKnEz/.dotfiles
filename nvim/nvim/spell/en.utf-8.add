@@ -40,3 +40,9 @@ LVT
 MADT
 Oppermann
 Oppermann's
+bitfield
+QEMU
+stdin
+lst
+println
+SerialPort
