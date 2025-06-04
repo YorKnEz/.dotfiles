@@ -4,8 +4,7 @@ return {
     "lervag/vimtex",
     tag = "v2.16",
     init = function()
-      vim.g.vimtex_view_method = 'zathura'
-      vim.g.vimtex_compiler_method = 'latexmk'
+      -- General
       vim.g.vimtex_quickfix_mode = 2 -- Disable automatic quickfix window
 
       -- Ignore auxiliary files in Neovim's built-in file explorer
@@ -14,8 +13,13 @@ return {
         "*.synctex.gz", "*.toc", "*.out", "*.log"
       }
 
+      -- View
+      vim.g.vimtex_view_method = "zathura"
       -- SyncTeX for forward/backward search
       vim.g.vimtex_view_general_options = "--synctex-forward @line:@col:@tex"
+
+      -- Compiler
+      vim.g.vimtex_compiler_method = "latexmk"
     end
   },
 }

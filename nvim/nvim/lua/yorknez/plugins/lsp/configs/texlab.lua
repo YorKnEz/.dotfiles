@@ -2,9 +2,10 @@ return {
   settings = {
     texlab = {
       build = {
-        executable = "latexmk",
-        args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-        onSave = true,
+        executable = "",
+        args = {},
+        onSave = false,
+        forwardSearchAfter = false,
       },
       forwardSearch = {
         executable = "zathura", -- or okular, evince, sumatraPDF, etc.
