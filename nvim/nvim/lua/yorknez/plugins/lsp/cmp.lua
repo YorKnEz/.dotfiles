@@ -60,6 +60,9 @@ return {
       -- Load luasnip snippets
       require("luasnip.loaders.from_vscode").lazy_load()
 
+      -- Load custom luasnip snippets
+      require("luasnip.loaders.from_lua").lazy_load()
+
       -- Autopairs integration
       cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 

@@ -46,3 +46,7 @@ stdin
 lst
 println
 SerialPort
+IRQ
+IRQs
+enum
+DMA
