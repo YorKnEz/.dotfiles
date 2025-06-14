@@ -27,6 +27,16 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Map j and k to gj and gk for tex/text/md files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex", "markdown", "text" },
+  callback = function()
+    local k = require("yorknez.keymaps");
+    k.keymap("n", "j", "gj", k.opts("Remap j to gj"));
+    k.keymap("n", "k", "gk", k.opts("Remap k to gk"));
+  end,
+})
+
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },

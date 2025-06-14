@@ -97,3 +97,13 @@ keymap("n", "<leader>fg", ":Telescope live_grep<cr>", opts("Telescope: Live grep
 keymap("n", "<leader>fb", ":Telescope buffers<cr>", opts("Telescope: Buffers"))
 keymap("n", "<leader>fk", ":Telescope keymaps<cr>", opts("Telescope: Keymaps"))
 keymap("n", "<leader>fr", ":Telescope resume<cr>", opts("Telescope: Resume last picker"))
+
+
+
+-- Export keymap and opts
+local M = {
+  keymap = keymap,
+  opts = opts,
+}
+
+return M
