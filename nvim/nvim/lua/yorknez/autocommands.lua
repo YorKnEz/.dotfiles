@@ -13,9 +13,9 @@ vim.api.nvim_create_autocmd("FileType", {
       yaml = { shiftwidth = 4, tabstop = 4 },
       asm = { colorcolumn = "80" },
       python = { colorcolumn = "120" },
-      gitcommit = { wrap = true, spell = true },
-      markdown = { wrap = true, spell = true },
-      tex = { wrap = true, spell = true },
+      gitcommit = { wrap = true, breakindent = true, spell = true },
+      markdown = { wrap = true, breakindent = true, spell = true },
+      tex = { wrap = true, breakindent = true, spell = true },
     }
 
     -- Apply settings if they exist for the filetype
