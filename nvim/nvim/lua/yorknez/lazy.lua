@@ -31,6 +31,6 @@ require("lazy").setup({
     { import = "yorknez.plugins.ui" },
   },
   install = { colorscheme = { "catppuccin" } },
-  checker = { enabled = true },           -- automatically check for plugin updates
+  checker = { enabled = true, notify = false },           -- automatically check for plugin updates
   change_detection = { enabled = false }, -- automatically check for config updates
 })
