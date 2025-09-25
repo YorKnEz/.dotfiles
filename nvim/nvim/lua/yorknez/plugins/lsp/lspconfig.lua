@@ -14,7 +14,9 @@ return {
     cmd = { "LspInfo", "LspInstall", "LspStart" },
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "hrsh7th/cmp-nvim-lsp" },
+      -- FIXME: remove pin after upgrading to v0.11 (next update requires neovim v0.11)
+      -- https://github.com/hrsh7th/cmp-nvim-lsp/issues/85#issuecomment-3200760970
+      { "hrsh7th/cmp-nvim-lsp", pin = true },
       { "mason-org/mason.nvim" },
       -- FIXME: remove pin after upgrading to v0.11 (next update requires neovim v0.11)
       { "mason-org/mason-lspconfig.nvim", pin = true },
