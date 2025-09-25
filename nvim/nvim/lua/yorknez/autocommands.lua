@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- Define settings for specific filetypes
     local settings = {
       lua = { shiftwidth = 2, tabstop = 2 },
+      typescript = { shiftwidth = 2, tabstop = 2 },
       typescriptreact = { shiftwidth = 2, tabstop = 2 },
       javascript = { shiftwidth = 2, tabstop = 2 },
       javascriptreact = { shiftwidth = 2, tabstop = 2 },

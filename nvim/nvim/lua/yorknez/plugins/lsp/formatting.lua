@@ -1,3 +1,5 @@
+local js_ts = { "prettierd", "prettier", stop_after_first = true }
+
 return {
   {
     "stevearc/conform.nvim",
@@ -8,7 +10,10 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = js_ts,
+        javascriptreact = js_ts,
+        typescript = js_ts,
+        typescriptreact = js_ts,
         rust = { "rustfmt" },
       },
       -- Set default options
